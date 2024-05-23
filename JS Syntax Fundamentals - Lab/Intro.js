@@ -106,3 +106,61 @@ function findTheLargestNumberOutOfThreeNumbers(firstNumber, secondNumber, thirdN
 }
 
 findTheLargestNumberOutOfThreeNumbers(1, 221, 1);
+
+
+function getTicketPrice(dayType, age) {
+    if (age < 0 || age > 122) {
+        console.log("Error!");
+        return;
+    }
+
+    const prices = {
+        Weekday: { child: 12, adult: 18, senior: 12 },
+        Weekend: { child: 15, adult: 20, senior: 15 },
+        Holiday: { child: 5, adult: 12, senior: 10 }
+    };
+
+    let category;
+
+    if (age >= 0 && age <= 18) {
+        category = 'child';
+    } else if (age > 18 && age <= 64) {
+        category = 'adult';
+    } else if (age > 64 && age <= 122) {
+        category = 'senior';
+    }
+
+    const price = prices[dayType][category];
+    console.log(`${price}$`);
+}
+
+function getCircleArea(number){
+    if(typeof(number) === 'number'){
+        let result;
+    
+        result = Math.pow(number, 2) * Math.PI;
+        console.log(result.toFixed(2));       
+    }
+    else{
+        console.log(`We can not calculate the circle area, because we receive a ${typeof(number)}.`)
+    }
+    
+}
+
+getCircleArea('kur');
+
+function printNumbersFromOneToFive(){
+    for (let i = 1; i <= 5; i++) {
+        console.log(i);
+    }
+}
+
+printNumbersFromOneToFive();
+
+function printNumbersFromMtoN(M, N){
+    for (let i = M; i >= N; i--) {        
+        console.log(i);
+    }
+}
+
+printNumbersFromMtoN(6, 2);
