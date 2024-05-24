@@ -52,3 +52,121 @@ function calculateTotalPrice(numberOfPeople, groupType,  dayOfWeek) {
 
 calculateTotalPrice(40, 'Regular', 'Saturday');
 
+// Write a JS function to check whether a year is a leap. Leap years are either divisible by 4 but not by 100 or are divisible by 400. The output should be following:
+// •	If the year is a leap, print: "yes"
+// •	Otherwise, print: "no"
+
+function isLeapYear(year){
+    if (year % 4 === 0 && year % 100 !== 0) {
+        console.log('yes');
+    }else if(year % 400 ===0){
+        console.log('yes');
+    }else{
+        console.log('no');
+    }
+}
+
+isLeapYear(4);
+
+// Write a function that displays numbers from given start to given end and their sum.
+// The input comes as two number parameters. Print the result like the examples below:
+
+function display_NumbersFrom_StartToEnd_And_TheirSum(start, end){
+    let array = [];
+
+    for (let i = start; i <= end; i++) {
+        array.push(i);        
+    }
+    const sum = array.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+    console.log(...array);
+    console.log(`Sum: ${sum}`);
+}
+
+display_NumbersFrom_StartToEnd_And_TheirSum(5, 10);
+
+// You will receive a number as a parameter. {number} X {times} = {product}
+// Print the 10 times table for this number.
+
+function printMultiplicationTableOfANumber(number){
+   
+    for (let i = 1; i <= 10; i++) {
+        let result = number * i;
+        console.log(`${number} X ${i} = ${result}`);
+        
+    }
+}
+
+printMultiplicationTableOfANumber(5);
+
+// Write a function, which will be given a single number. Your task is to find the sum of its digits.
+
+function getSumOfAGivenNumbersDigits(number){
+
+    let sum = 0;
+
+    let numberString = Math.abs(number).toString();
+
+    for (let char of numberString) {        
+        sum += parseInt(char);
+    }
+
+    console.log(sum);
+}
+
+getSumOfAGivenNumbersDigits(12);
+
+function wordConcatenator(firstWord, secondWord, thirdWord){
+    console.log(firstWord + secondWord + thirdWord);
+}
+
+wordConcatenator('a', 'b', 'c');
+
+function wordConcatenatorReversed(firstWord, secondWord, thirdWord){
+    console.log(`${thirdWord} ${secondWord} ${firstWord}`);
+}
+
+wordConcatenatorReversed('a', 'b', 'c');
+
+//Write a function that calculates how much money you need to buy fruit. You will receive a string for the type of fruit you want to buy, a number for weight in grams, and another number for the price per kilogram. 
+// Print the following text on the console:  
+// `I need ${money} to buy {weight} kilograms {fruit}.`
+// Print the weight and the money rounded to two decimal places.
+
+function calclateMoneyForFruits(fruit, grams, pricePerKg){
+    let kilograms = grams / 1000;
+
+    let price = pricePerKg * kilograms;
+
+    kilograms = kilograms.toFixed(2);
+
+    price = price.toFixed(2);
+
+    console.log(`I need $${price} to buy ${kilograms} kilograms ${fruit}.`);
+}
+
+calclateMoneyForFruits('orange', 2500, 1.80);
+
+// Write a function that takes an integer number as an input and check if all the digits in a given number are the same or not.
+// Print on the console true if all numbers are the same and false if not. On the next line print the sum of all digits.
+
+function checkIfAllNumberDigitsAreSame(number){
+    let numberInString = Math.abs(number).toString();
+
+    let firstDigit = numberInString[0];
+    let sum = 0;
+    let isSame = true;
+
+    for (const digit of numberInString) {
+
+        sum += parseInt(digit);
+        if(firstDigit != digit){
+            isSame = false;
+        }    
+    }
+
+    console.log(isSame);
+    console.log(sum);
+}
+
+checkIfAllNumberDigitsAreSame(1234);
