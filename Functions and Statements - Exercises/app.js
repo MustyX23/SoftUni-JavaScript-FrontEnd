@@ -123,3 +123,146 @@ function checkPalindroms(positiveNumbers){
 }
 
 checkPalindroms([123,323,421,121]);
+
+// 06 Password Validator
+
+// Write a function that checks if a given password is valid. Password validations are:
+// •	The length should be 6 - 10 characters (inclusive)
+// •	It should consist only of letters and digits
+// •	It should have at least 2 digits 
+// If a password is a valid print: "Password is valid".
+// If it is NOT valid, for every unfulfilled rule print a message:
+// •	"Password must be between 6 and 10 characters"
+// •	"Password must consist only of letters and digits"
+// •	"Password must have at least 2 digits"
+
+function validatePassword(password){
+
+    let isValid = true;
+
+    if (password.length < 6 || password.length > 10) {
+        console.log('Password must be between 6 and 10 characters');
+        isValid = false;
+    }
+
+    if (!/^[a-zA-Z0-9]+$/.test(password)) { // Checks if password consist only of letters and digits
+        console.log('Password must consist only of letters and digits');
+        isValid = false;
+    }
+
+    let digitCount = password.split('').filter(char => /\d/.test(char)).length;
+
+    if (digitCount < 2) {
+        console.log('Password must have at least 2 digits');
+        isValid = false;
+    }
+
+    if (isValid) {
+        console.log("Password is valid");
+    }    
+}
+
+validatePassword('Pa$s$s')
+
+// 07 NxN Matrix
+
+// Write a function that receives a single integer 
+// number n and prints nxn matrix with that number.
+
+function printMatrix(number){
+    for (let i = 1; i <= number; i++) {
+        let row = Array(number).fill(number).join(' ');
+        console.log(row); 
+    }
+}
+
+printMatrix(7);
+
+// 08 Perfect Number
+
+// Write a function that receives a number and checks if that number is perfect or NOT.
+// A perfect number is a positive integer that is equal to the sum
+// of its proper positive divisors.
+// That is the sum of its positive divisors excluding the number itself
+// (also known as its aliquot sum).
+
+function findPerfectNumber(number){
+    if (number <= 0) {
+        console.log('It\'s not so perfect.');
+    }
+
+    let devisorSum = 0;
+
+    for (let i = 1; i < number; i++) {        
+        if (number % i === 0) {
+            devisorSum += i;
+        }        
+    }
+
+    if (devisorSum === number) {
+        console.log('We have a perfect number!');
+    }
+    else{
+        console.log('It\'s not so perfect.');
+    }
+
+}
+
+findPerfectNumber(28);
+
+// 09 Loading Bar
+
+// You will receive a single number between 0 and 100, which is divided
+// with 10 without residue (0, 10, 20, 30...). 
+// Your task is to create a function that visualizes
+// a loading bar depending on the number you have received in the input.
+
+function drawLoadingBar(number){
+    if (number === 100) {
+        console.log('100% Complete!');
+        return;
+    }
+
+    const percentage = number / 10;
+
+    let loadingBar = '[';
+
+    for (let i = 0; i < 10; i++) {
+        if (percentage > i) {
+            loadingBar += '%';
+        }
+        else{
+            loadingBar += '.';
+        }
+        
+    }
+
+    loadingBar += ']';
+
+    console.log(`${number}% ${loadingBar}`);
+    console.log('Still loading...');
+}
+
+drawLoadingBar(50);
+
+function factorialDevision(firstNumber, secondNumber){
+    const factorial = (n) =>{
+        if (n === 0) {
+            return 1;
+        } else {
+            return n * factorial(n - 1);
+        }
+    }
+
+    const firstFactorial = factorial(firstNumber);
+    const secondFactorial = factorial(secondNumber);
+
+    const result = firstFactorial / secondFactorial;
+
+    console.log(result.toFixed(2));
+
+}
+
+factorialDevision(5, 2);
+
+
