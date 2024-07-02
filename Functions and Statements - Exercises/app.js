@@ -246,7 +246,7 @@ function drawLoadingBar(number){
 drawLoadingBar(50);
 
 function factorialDevision(firstNumber, secondNumber){
-    const factorial = (n) =>{
+    const factorial = (n) =>{ //Recommend using recursion: Simplier 
         if (n === 0) {
             return 1;
         } else {
